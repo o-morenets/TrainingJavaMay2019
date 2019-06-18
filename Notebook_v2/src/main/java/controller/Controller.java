@@ -79,7 +79,7 @@ public class Controller {
      * Print user menu
      */
     private void printMenu() {
-        view.printMessage(LINE_END);
+        view.printlnMessage();
 
         MainMenu[] mainMenuValues = Stream.of(MainMenu.values())
                 .sorted(Comparator.comparing(MainMenu::getSortOrder))

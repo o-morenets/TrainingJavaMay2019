@@ -17,7 +17,7 @@ public interface TextConstants {
     String MESSAGE_THANK_YOU = "message.thankYou";
 
 
-    /* Prompts & Questions*/
+    /* Prompts & Questions */
 
     String PROMPT_ADDRESS = "prompt.inputAddress";
     String CHOOSE_LANGUAGE = "prompt.chooseLanguage";
