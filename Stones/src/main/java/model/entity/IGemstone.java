@@ -7,4 +7,5 @@ public interface IGemstone {
     double getCost();
 
     int getTransparency();
+
 }

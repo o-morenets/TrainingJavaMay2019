@@ -8,6 +8,6 @@ public class Main {
         Riviere riviere = new Riviere();
         View view = new View();
         Controller controller = new Controller(riviere, view);
-        controller.process();
+        controller.processUser();
     }
 }
