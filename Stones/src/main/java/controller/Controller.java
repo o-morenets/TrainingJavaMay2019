@@ -93,7 +93,7 @@ public class Controller {
      * @param sc scanner object
      */
     private void addStone(Scanner sc) {
-        Menu<model.entity.Gemstone> gemstoneMenu = new Menu<>(model.entity.Gemstone.class);
+        Menu<Gemstone> gemstoneMenu = new Menu<>(Gemstone.class);
         view.printMenu(gemstoneMenu.getSortedMenu());
 
         int userChoice = Integer.parseInt(userInput(sc, PROMPT_MENU, STRING_EMPTY, REGEX_NUMBER));
