@@ -25,7 +25,9 @@ public class Riviere {
      * @return total carat weight of gemstones
      */
     public double totalCaratWeight() {
-        return stones.stream().mapToDouble(IGemstone::getCaratWeight).sum();
+        return stones.stream()
+                .mapToDouble(IGemstone::getCaratWeight)
+                .sum();
     }
 
     /**
@@ -34,7 +36,9 @@ public class Riviere {
      * @return total cost of all gemstones
      */
     public double totalCost() {
-        return stones.stream().mapToDouble(IGemstone::getCost).sum();
+        return stones.stream()
+                .mapToDouble(IGemstone::getCost)
+                .sum();
     }
 
     /**
@@ -43,7 +47,9 @@ public class Riviere {
      * @return sorted list of gemstones
      */
     public List<IGemstone> sortByCost() {
-        return stones.stream().sorted(Comparator.comparing(IGemstone::getCost).reversed()).collect(Collectors.toList());
+        return stones.stream()
+                .sorted(Comparator.comparing(IGemstone::getCost).reversed())
+                .collect(Collectors.toList());
     }
 
     /**
