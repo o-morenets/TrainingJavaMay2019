@@ -44,9 +44,7 @@ public class CountFrequencies {
      * @param frequencies frequencies map
      */
     private static void printMap(Map<Integer, Long> frequencies) {
-        for (Map.Entry<Integer, Long> entry : frequencies.entrySet()) {
-            System.out.println(entry.getKey() + " - " + entry.getValue());
-        }
+        frequencies.forEach((k, v) -> System.out.println(k + " - " + v));
     }
 
     /**
