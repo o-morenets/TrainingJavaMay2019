@@ -10,7 +10,7 @@ import static org.junit.Assert.*;
 
 /**
  * Tests for MyArrayList<E>
- * Created by a-morenets on 20.11.2016.
+ * Created by o-morenets on 23.06.2019
  */
 public class MyArrayListTest {
 

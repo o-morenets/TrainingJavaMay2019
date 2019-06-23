@@ -5,7 +5,7 @@ import java.util.function.Consumer;
 
 /**
  * ArrayList implementation
- * Created by o-morenets on 20.11.2016.
+ * Created by o-morenets on 23.06.2019
  */
 public class MyArrayList<E> implements List<E> {
 

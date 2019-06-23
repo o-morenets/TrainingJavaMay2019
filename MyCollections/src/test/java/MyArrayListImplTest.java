@@ -9,7 +9,7 @@ import java.util.*;
 import static org.junit.Assert.*;
 
 /**
- * Created by oleksij.onysymchuk@gmail on 19.11.2016.
+ * Created by oleksii.onysymchuk@gmail on 19.11.2016.
  */
 public class MyArrayListImplTest {
     private List<Integer> emptyList;
