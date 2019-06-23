@@ -111,6 +111,5 @@ public class View {
         for (Enum menuItem : menu) {
             printlnMessage(String.valueOf(menuItem.ordinal()), DOT, SPACE, menuItem.toString());
         }
-
     }
 }
