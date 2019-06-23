@@ -31,6 +31,7 @@ public class CountFrequencies {
     private static Map<Integer, Long> freqMapJava8(ArrayList<Integer> list) {
         return list.stream()
                 .collect(Collectors.groupingBy(Function.identity(), Collectors.counting()))
+                // sort map by key:
                 .entrySet()
                 .stream()
                 .sorted(Map.Entry.comparingByKey())
