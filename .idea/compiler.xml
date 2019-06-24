@@ -7,14 +7,29 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="MoreLessGame" />
-        <module name="SpringAlishev" />
+        <module name="Notebook_v1" />
+        <module name="Notebook_v2" />
+        <module name="Reflection" />
         <module name="Stones" />
         <module name="TestMavenAndGit" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel target="1.8">
-      <module name="TrainingJavaMay2019" target="1.7" />
-      <module name="ua.training" target="1.8" />
+    <bytecodeTargetLevel>
+      <module name="ArraySkills" target="8" />
+      <module name="MoreLessGame" target="1.8" />
+      <module name="Notebook_v1" target="1.8" />
+      <module name="Notebook_v2" target="1.8" />
+      <module name="Reflection" target="1.8" />
+      <module name="registration_form_03" target="1.8" />
+      <module name="registration_form_04" target="1.8" />
+      <module name="Stones" target="1.8" />
+      <module name="TestMavenAndGit" target="1.8" />
     </bytecodeTargetLevel>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="registration_form_03" options="-parameters" />
+      <module name="registration_form_04" options="-parameters" />
+    </option>
   </component>
 </project>
