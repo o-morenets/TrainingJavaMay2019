@@ -326,10 +326,16 @@ public class MyArrayList<E> implements List<E> {
             throw new IndexOutOfBoundsException("Index = " + index + ", size = " + size);
     }
 
+    /**
+     * <Remove is not allowed>
+     */
     public boolean removeAll(Collection<?> c) {
         throw new UnsupportedOperationException("Remove is not allowed!");
     }
 
+    /**
+     * <Remove is not allowed>
+     */
     public boolean retainAll(Collection<?> c) {
         throw new UnsupportedOperationException("Remove is not allowed!");
     }
@@ -390,49 +396,14 @@ public class MyArrayList<E> implements List<E> {
         throw new UnsupportedOperationException("Not implemented yet.");
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (o == this) return true;
-        if (!(o instanceof List)) return false;
-
-        List<?> that = (List<?>) o;
-        if (size != that.size()) return false;
-
-        for (int i = 0; i < size; i++) {
-            if (!(data[i] == null ? that.get(i) == null : data[i].equals(that.get(i))))
-                return false;
-        }
-        return true;
-    }
-
-    @Override
-    public int hashCode() {
-        int hashCode = 1;
-        for (E e : this)
-            hashCode = 31 * hashCode + (e == null ? 0 : e.hashCode());
-        return hashCode;
-    }
-
-    @Override
-    public String toString() {
-        StringBuilder sb = new StringBuilder("[");
-        for (int i = 0; i < size; i++) {
-            sb.append(get(i));
-            if (i < size - 1) {
-                sb.append(", ");
-            }
-        }
-        return sb.toString() + "]";
-    }
-
     /**
      * Iterator class
      */
     private class MyIterator implements Iterator<E> {
+
         int cursor;         // index of next element to return
         int lastRet = -1;   // index of last element returned; -1 if no such
         int expectedModCount = modCount; // modifications counter must be equal to modCount of this list
-
         @Override
         public boolean hasNext() {
             return cursor != size;
@@ -529,5 +500,40 @@ public class MyArrayList<E> implements List<E> {
         public void remove() {
             throw new UnsupportedOperationException("Remove is not allowed!");
         }
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (o == this) return true;
+        if (!(o instanceof List)) return false;
+
+        List<?> that = (List<?>) o;
+        if (size != that.size()) return false;
+
+        for (int i = 0; i < size; i++) {
+            if (!(data[i] == null ? that.get(i) == null : data[i].equals(that.get(i))))
+                return false;
+        }
+        return true;
+    }
+
+    @Override
+    public int hashCode() {
+        int hashCode = 1;
+        for (E e : this)
+            hashCode = 31 * hashCode + (e == null ? 0 : e.hashCode());
+        return hashCode;
+    }
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder("[");
+        for (int i = 0; i < size; i++) {
+            sb.append(get(i));
+            if (i < size - 1) {
+                sb.append(", ");
+            }
+        }
+        return sb.toString() + "]";
     }
 }
