@@ -35,56 +35,74 @@ public class Controller {
      * Process user input and validation
      */
     public void processUser(){
-        Scanner sc = new Scanner(System.in);
+        try (Scanner sc = new Scanner(System.in)) {
+            view.printlnMessage(MESSAGE_WELCOME);
+            processMainMenu(sc);
+            view.printMessage(MESSAGE_GOODBYE);
+        }
+    }
 
-        view.printlnMessage(MESSAGE_WELCOME);
-
+    /**
+     * Process Main Menu
+     *
+     * @param sc scanner object
+     */
+    private void processMainMenu(Scanner sc) {
         boolean goodbye = false;
         do {
-            GenericMenu<MainMenu> menuMain = new GenericMenu<>(MainMenu.class);
-            view.printMenu(menuMain.getSortedMenu());
+            switch (chooseMainMenuItem(sc)) {
+                case ITEM_CREATE_NEW_RIVIERE:
+                    model.createNewRiviere();
+                    break;
 
-            int userChoice = Integer.parseInt(userInput(sc, PROMPT_MENU, STRING_EMPTY, REGEX_MENU_CHOICE));
-            MainMenu[] mainMenuValues = MainMenu.values();
+                case ITEM_ADD_STONE:
+                    addStone(sc);
+                    break;
 
-            if (userChoice < 0 || userChoice > mainMenuValues.length - 1) {
-                view.printlnMessage(WARNING_INVALID_CHOICE);
-            } else {
-                MainMenu mainMenu = mainMenuValues[userChoice];
+                case ITEM_PRINT_RIVIERE:
+                    view.printRiviere(model);
+                    break;
 
-                switch (mainMenu) {
-                    case ITEM_CREATE_NEW_RIVIERE:
-                        model.createNewRiviere();
-                        break;
+                case ITEM_SORT_STONES:
+                    view.printList(model.sortByCost());
+                    break;
 
-                    case ITEM_ADD_STONE:
-                        addStone(sc);
-                        break;
+                case ITEM_FILTER_BY_TRANSPARENCY_RANGE:
+                    filterByTransparency(sc);
+                    break;
 
-                    case ITEM_PRINT_RIVIERE:
-                        view.printRiviere(model);
-                        break;
+                case ITEM_CHANGE_LANGUAGE:
+                    changeLanguage(sc);
+                    break;
 
-                    case ITEM_SORT_STONES:
-                        view.printList(model.sortByCost());
-                        break;
-
-                    case ITEM_FILTER_BY_TRANSPARENCY_RANGE:
-                        filterByTransparency(sc);
-                        break;
-
-                    case ITEM_CHANGE_LANGUAGE:
-                        changeLanguage(sc);
-                        break;
-
-                    case ITEM_EXIT:
-                        goodbye = true;
-                        break;
-                }
+                case ITEM_EXIT:
+                    goodbye = true;
+                    break;
             }
         } while (!goodbye);
+    }
 
-        view.printMessage(MESSAGE_GOODBYE);
+    /**
+     * Ask user for choose a valid Main menu item
+     *
+     * @param sc scanner object
+     * @return valid Main menu item
+     */
+    private MainMenu chooseMainMenuItem(Scanner sc) {
+        GenericMenu<MainMenu> menuMain = new GenericMenu<>(MainMenu.class);
+        view.printMenu(menuMain.getSortedMenu());
+
+        int userChoice;
+        boolean isValidUserChoice;
+        do {
+            userChoice = Integer.parseInt(userInput(sc, PROMPT_MENU, STRING_EMPTY, REGEX_MENU_CHOICE));
+            isValidUserChoice = userChoice >= 0 || userChoice < menuMain.numItems();
+            if (!isValidUserChoice) {
+                view.printlnMessage(WARNING_INVALID_CHOICE);
+            }
+        } while (!isValidUserChoice);
+
+        return MainMenu.values()[userChoice];
     }
 
     /**
@@ -97,9 +115,8 @@ public class Controller {
         view.printMenu(gemstoneMenu.getSortedMenu());
 
         int userChoice = Integer.parseInt(userInput(sc, PROMPT_MENU, STRING_EMPTY, REGEX_NUMBER));
-        Gemstone[] stonesMenuValues = Gemstone.values();
 
-        if (userChoice < 0 || userChoice > stonesMenuValues.length - 1) {
+        if (userChoice < 0 || userChoice >= gemstoneMenu.numItems()) {
             view.printlnMessage(WARNING_INVALID_CHOICE);
         } else {
             model.addStone(Gemstone.values()[userChoice]);

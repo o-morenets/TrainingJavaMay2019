@@ -3,6 +3,7 @@ package model.entity;
 import view.menu.ISortedMenu;
 
 public enum Gemstone implements IGemstone, ISortedMenu {
+// todo  carat - weight
 
     EMERALD(1.2, 1000.00, 65, "stone.emerald"),
     RUBY(3.5, 3500.00, 70, "stone.ruby"),

@@ -18,7 +18,12 @@ public class GenericMenu<T extends Enum<T> & ISortedMenu> {
      */
     public T[] getSortedMenu() {
         T[] enumConstants = menuType.getEnumConstants();
-        Arrays.sort(enumConstants, Comparator.comparing(t -> t.getSortOrder()));
+        Arrays.sort(enumConstants, Comparator.comparing(t -> t.getSortOrder())); // DO NOT replace with method reference!!!
+
         return enumConstants;
+    }
+
+    public int numItems() {
+        return menuType.getEnumConstants().length;
     }
 }
