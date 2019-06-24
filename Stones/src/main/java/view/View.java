@@ -8,18 +8,24 @@ import java.util.*;
 
 import static view.TextConstants.*;
 
+/**
+ * Represents View object for MVC pattern
+ *
+ * @author Oleksii Morenets
+ */
 public class View {
 
-    /** Bundle file */
-    private static final String BUNDLE_FILE = "textMessages";
+    /** Bundle filename */
+    private static final String BUNDLE_FILENAME = "textMessages";
 
+    /** ResourceBundle */
     private ResourceBundle bundle;
 
     /**
      * Constructs View object with bundle based on default locale (from supported locales list)
      */
     public View() {
-        SupportedLocale currentLocale = SupportedLocale.UA;
+        SupportedLocale currentLocale = SupportedLocale.getDefault();
         changeResourceBundleForLocale(currentLocale.getLocale());
     }
 
@@ -28,7 +34,7 @@ public class View {
      * @param locale locale
      */
     public void changeResourceBundleForLocale(Locale locale) {
-        bundle = ResourceBundle.getBundle(BUNDLE_FILE, locale);
+        bundle = ResourceBundle.getBundle(BUNDLE_FILENAME, locale);
     }
 
     /**

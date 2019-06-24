@@ -3,11 +3,11 @@ package view.menu;
 import java.util.Arrays;
 import java.util.Comparator;
 
-public class Menu<T extends Enum<T> & ISortedMenu> {
+public class GenericMenu<T extends Enum<T> & ISortedMenu> {
 
     private Class<T> menuType;
 
-    public Menu(Class<T> menuType) {
+    public GenericMenu(Class<T> menuType) {
         this.menuType = menuType;
     }
 

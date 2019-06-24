@@ -6,9 +6,15 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="MoreLessGame" />
         <module name="SpringAlishev" />
+        <module name="Stones" />
+        <module name="TestMavenAndGit" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel target="1.8" />
+    <bytecodeTargetLevel target="1.8">
+      <module name="TrainingJavaMay2019" target="1.7" />
+      <module name="ua.training" target="1.8" />
+    </bytecodeTargetLevel>
   </component>
 </project>

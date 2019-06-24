@@ -5,7 +5,7 @@ import model.Riviere;
 import model.entity.Gemstone;
 import view.View;
 import view.menu.MainMenu;
-import view.menu.Menu;
+import view.menu.GenericMenu;
 
 import java.util.*;
 import java.util.regex.Pattern;
@@ -41,7 +41,7 @@ public class Controller {
 
         boolean goodbye = false;
         do {
-            Menu<MainMenu> menuMain = new Menu<>(MainMenu.class);
+            GenericMenu<MainMenu> menuMain = new GenericMenu<>(MainMenu.class);
             view.printMenu(menuMain.getSortedMenu());
 
             int userChoice = Integer.parseInt(userInput(sc, PROMPT_MENU, STRING_EMPTY, REGEX_MENU_CHOICE));
@@ -93,7 +93,7 @@ public class Controller {
      * @param sc scanner object
      */
     private void addStone(Scanner sc) {
-        Menu<Gemstone> gemstoneMenu = new Menu<>(Gemstone.class);
+        GenericMenu<Gemstone> gemstoneMenu = new GenericMenu<>(Gemstone.class);
         view.printMenu(gemstoneMenu.getSortedMenu());
 
         int userChoice = Integer.parseInt(userInput(sc, PROMPT_MENU, STRING_EMPTY, REGEX_NUMBER));

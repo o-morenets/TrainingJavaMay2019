@@ -42,10 +42,10 @@ public class CountFrequencies {
     /**
      * Helper method. Prints a map
      *
-     * @param frequencies frequencies map
+     * @param map frequencies map
      */
-    private static void printMap(Map<Integer, Long> frequencies) {
-        frequencies.forEach((k, v) -> System.out.println(k + " - " + v));
+    private static void printMap(Map<Integer, Long> map) {
+        map.forEach((k, v) -> System.out.println(k + " - " + v));
     }
 
     /**

@@ -1,5 +1,10 @@
 package view;
 
+/**
+ * Text constants
+ *
+ * @author Oleksii Morenets
+ */
 public interface TextConstants {
 
     /* Text characters */
